@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\View"
   ],
-  "SelectedNode": "\\Finalproject.sln",
+  "SelectedNode": "\\View\\FormPrincipal.cs",
   "PreviewInSolutionExplorer": false
 }

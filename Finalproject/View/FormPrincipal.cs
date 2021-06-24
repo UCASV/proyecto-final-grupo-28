@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 using Finalproject.View;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Diagnostics;
 
 namespace Finalproject
 {
@@ -67,6 +71,10 @@ namespace Finalproject
                     }
                 }
             }
+
+            lblfeha1.Text = "18/06/2021";
+            lblfecha2.Text = "18/07/2021";
+            lblplacevacun.Text = " Megacentro Hospital El Salvador - Punto de salida Plaza merliot";
 
         }
 
@@ -256,6 +264,8 @@ namespace Finalproject
                         }
                         else
                         {
+                            db.Add(newCitizen);
+                            db.SaveChanges();
                             for (int i = 0; i < Int32.Parse(dgvDisease.RowCount.ToString()); i++)
                             {
                                 diseases.Add(new ChronicDisease(dgvDisease.Rows[i].Cells[0].Value.ToString(), txtDui.Text, Int32.Parse(dgvDisease.Rows[i].Cells[2].Value.ToString())));
@@ -263,10 +273,9 @@ namespace Finalproject
                                 db.SaveChanges();
                             }
 
-                            db.Add(newCitizen);
-                            db.SaveChanges();
                             MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
+                            Clearing_Text();
                         }
                     }
                     // Si están marcados ambos checkbox, institución y enfermedad
@@ -359,6 +368,43 @@ namespace Finalproject
             }
 
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnimprimir_Click(object sender, EventArgs e)
+        {
+            var pdif = txtDui.Text;
+
+
+            Document doc = new Document();
+            PdfWriter.GetInstance(doc, new FileStream($"{pdif}.pdf", FileMode.Create));
+            doc.Open();
+
+            Paragraph title = new Paragraph();
+            title.Font = FontFactory.GetFont(FontFactory.TIMES, 18f, BaseColor.BLUE);
+            title.Add("Cita COVID-19");
+            doc.Add(title);
+
+            doc.Add(new Paragraph(lbltxtx1.Text));
+            doc.Add(new Paragraph(lbltxt2.Text));
+            doc.Add(new Paragraph(lbltxt3.Text + lblfeha1.Text + lbltxt4.Text + lblfecha2.Text + lbltxt5.Text));
+            doc.Add(new Paragraph(lbltxt6.Text + lblplacevacun.Text));
+            doc.Add(new Paragraph(lbltxt7.Text));
+            doc.Add(new Paragraph(lbltxt8.Text));
+            doc.Add(new Paragraph(lbltxt9.Text));
+
+            doc.Close();
+
+            
         }
     }
 }
