@@ -15,6 +15,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using System.Diagnostics;
+using Finalproject.SqlServerContext;
 
 namespace Finalproject
 {
@@ -26,10 +27,13 @@ namespace Finalproject
         private string expressionPhone = "^[7|6|2][0-9]{7}$";
         private string emailExpression = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
 
+        //Variable que almacenara el usuario que inicio sesion
+        public string user { get; set; }
 
-        public FrmPrincipal()
+        public FrmPrincipal(string user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -71,11 +75,6 @@ namespace Finalproject
                     }
                 }
             }
-
-            lblfeha1.Text = "18/06/2021";
-            lblfecha2.Text = "18/07/2021";
-            lblplacevacun.Text = " Megacentro Hospital El Salvador - Punto de salida Plaza merliot";
-
         }
 
 
@@ -248,9 +247,10 @@ namespace Finalproject
                             newCitizen.IdInstitution = cmbInstitution.SelectedIndex + 1;
                             db.Add(newCitizen);
                             db.SaveChanges();
-
+                            Appointment();
                             MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
                               MessageBoxIcon.Information);
+                            Vaccination();
                             Clearing_Text();
                         }
                     }
@@ -272,9 +272,10 @@ namespace Finalproject
                                 db.Add(diseases[i]);
                                 db.SaveChanges();
                             }
-
+                            Appointment();
                             MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
+                            Vaccination();
                             Clearing_Text();
                         }
                     }
@@ -299,9 +300,10 @@ namespace Finalproject
                                 db.Add(diseases[i]);
                                 db.SaveChanges();
                             }
-
+                            Appointment();
                             MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
+                            Vaccination();
                             Clearing_Text();
                         }
                     }
@@ -311,13 +313,12 @@ namespace Finalproject
                         db.Add(newCitizen);
                         db.SaveChanges();
 
+                        Appointment();
                         MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
+                        Vaccination();
                         Clearing_Text();
                     }
-
-
-                    // Falta guardar hora y fecha de la cita...
 
 
                 }
@@ -370,18 +371,9 @@ namespace Finalproject
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnimprimir_Click(object sender, EventArgs e)
         {
+            //Genera el documento PDF
             var pdif = txtDui.Text;
 
 
@@ -396,15 +388,126 @@ namespace Finalproject
 
             doc.Add(new Paragraph(lbltxtx1.Text));
             doc.Add(new Paragraph(lbltxt2.Text));
-            doc.Add(new Paragraph(lbltxt3.Text + lblfeha1.Text + lbltxt4.Text + lblfecha2.Text + lbltxt5.Text));
+            doc.Add(new Paragraph(lbltxt3.Text + lblfeha1.Text + lbltxt4.Text + lblhora2.Text + lbltxt5.Text));
             doc.Add(new Paragraph(lbltxt6.Text + lblplacevacun.Text));
             doc.Add(new Paragraph(lbltxt7.Text));
             doc.Add(new Paragraph(lbltxt8.Text));
             doc.Add(new Paragraph(lbltxt9.Text));
 
             doc.Close();
-
             
+        }
+
+        //Funcion que mostrara los datos del ciudadano recien ingresado
+        private void Vaccination()
+        {
+            string dui = txtDui.Text;
+            string name = txtName.Text;
+
+            lblimpdui.Text = dui;
+            lblimpname.Text = name;
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            //se valida si el ciudadano existe ya se encuentra en la base de datos
+            var db = new VaccinationDBContext();
+            var CitizenList = db.Citizens
+                .OrderBy(u => u.Dui)
+                .ToList();
+
+            var result = CitizenList.Where(
+                u => u.Dui.Equals(txt_Dui.Text)
+                ).ToList();
+
+            //si el contador da 0 significa que el ciudadano no se encuentra en la base de datos
+            if (result.Count == 0)
+            {
+                MessageBox.Show("El ciudadano no ha realizado ninguna cita", "ERROR",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Citizen Searchcitizen = db.Citizens.Find(txt_Dui.Text);
+
+
+                Appointment SearchAppointment = db.Appointments.FirstOrDefault(x=> x.DuiCitizen == txt_Dui.Text);
+                
+                //Mostrando los datos de la cita con el DUI insertado
+                Citizen citizen = new Citizen();
+                Appointment appointment = new Appointment();
+
+                citizen.CitizenName = Searchcitizen.CitizenName;
+                appointment.FirstDoseDate = SearchAppointment.FirstDoseDate;
+                appointment.Place = SearchAppointment.Place;
+
+                lbl_showname.Text = citizen.CitizenName;
+                lbl_showDate.Text = appointment.FirstDoseDate.ToString("yyyy/MM/dd hh:mm");
+                lbl_showPlace.Text = appointment.Place;
+                
+            }
+        }
+
+        //Funcion que generara una fecha en la que el ciudadano podra asistir
+        private DateTime RandomDate()
+        {
+            Random random = new Random();
+
+            DateTime start = DateTime.Today;
+            int range = (DateTime.Today.AddMonths(3) - start).Days;
+            return start.AddDays(random.Next(range));
+        }
+
+        //Funcion que generara una hora a la cual el ciudadano podra asistir
+        private DateTime RandomHour()
+        {
+            DateTime start = DateTime.Today.AddHours(7);
+            Random rnd = new Random();
+            DateTime value = start.AddMinutes(rnd.Next(241));
+
+            return value;
+        }
+
+        //Funcion que generara un lugar de vacunacion para el ciudadano
+        private string RandomPlace()
+        {
+            Random random = new Random();
+
+            string[] Place = { " Megacentro Hospital", "Hospital El Salvador", "Gran Via"};
+
+            int Pindex = random.Next(Place.Length);
+
+            return Place[Pindex];
+        }
+
+        //Funcion que guardara la cita en la base de datos
+        private void RegisterAppointment(DateTime date, DateTime hour, string place)
+        {
+            var db = new VaccinationDBContext();
+
+            Appointment appointment = new Appointment();
+            appointment.Place = place;
+            appointment.FirstDoseDate = date;
+            appointment.FirstDoseDate = hour;
+            appointment.IdStaff = user;
+            appointment.DuiCitizen = txtDui.Text;
+
+            db.Add(appointment);
+            db.SaveChanges();
+        }
+
+        //Funcion que mostrara los datos de la cita que genero la aplicacion
+        private void Appointment ()
+        {
+            var date = RandomDate();
+            var hour = RandomHour();
+            var place = RandomPlace();
+
+            lblfeha1.Text = date.ToString("yyyy/MM/dd");
+            lblhora2.Text = hour.ToString("hh:mm");
+            lblplacevacun.Text = place;
+
+            RegisterAppointment(date, hour, place);
         }
     }
 }

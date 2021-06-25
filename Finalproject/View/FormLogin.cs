@@ -59,7 +59,7 @@ namespace Finalproject
                     db.Add(NewLogin);
                     db.SaveChanges();
 
-                    FrmPrincipal principal = new FrmPrincipal();
+                    FrmPrincipal principal = new FrmPrincipal(txtuser.Text);
                     this.Hide();
                     principal.Show();
                 }
