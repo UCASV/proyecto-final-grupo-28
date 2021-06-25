@@ -481,14 +481,13 @@ namespace Finalproject
         }
 
         //Funcion que guardara la cita en la base de datos
-        private void RegisterAppointment(DateTime date, DateTime hour, string place)
+        private void RegisterAppointment(DateTime date, string place)
         {
             var db = new VaccinationDBContext();
 
             Appointment appointment = new Appointment();
             appointment.Place = place;
             appointment.FirstDoseDate = date;
-            appointment.FirstDoseDate = hour;
             appointment.IdStaff = user;
             appointment.DuiCitizen = txtDui.Text;
 
@@ -507,7 +506,9 @@ namespace Finalproject
             lblhora2.Text = hour.ToString("hh:mm");
             lblplacevacun.Text = place;
 
-            RegisterAppointment(date, hour, place);
+            DateTime TotalDate = new DateTime(date.Year,date.Month,date.Day,hour.Hour,hour.Minute,hour.Second);
+
+            RegisterAppointment(TotalDate, place);
         }
     }
 }
