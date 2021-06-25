@@ -510,5 +510,10 @@ namespace Finalproject
 
             RegisterAppointment(TotalDate, place);
         }
+
+        private void lblDui_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
