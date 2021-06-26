@@ -114,6 +114,7 @@ namespace Finalproject
 
             this.Activated += (s, evt) => { UpdateCMB(); };
 
+            
         }
 
         private void chkDiseaseAsk_CheckedChanged(object sender, EventArgs e)
@@ -374,7 +375,7 @@ namespace Finalproject
         private void btnimprimir_Click(object sender, EventArgs e)
         {
             //Genera el documento PDF
-            var pdif = txtDui.Text;
+            var pdif = lblimpname.Text;
 
 
             Document doc = new Document();
@@ -395,7 +396,7 @@ namespace Finalproject
             doc.Add(new Paragraph(lbltxt9.Text));
 
             doc.Close();
-            
+
         }
 
         //Funcion que mostrara los datos del ciudadano recien ingresado
@@ -514,6 +515,177 @@ namespace Finalproject
         private void lblDui_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_printDFU_Click(object sender, EventArgs e)
+        {
+            //Genera el documento PDF sobre el ciudadano que esta consultando el "seguimiento de cita"
+            try
+            {
+                var pdif = txt_Dui.Text;
+
+                string Totaldate = lbl_showDate.Text;
+                string date = Totaldate.Substring(0, 10);
+                int Tdlength = Totaldate.Length;
+                string hour = Totaldate.Substring((Tdlength - 6), 6);
+
+
+                Document doc = new Document();
+                PdfWriter.GetInstance(doc, new FileStream($"{pdif}.pdf", FileMode.Create));
+                doc.Open();
+
+                Paragraph title = new Paragraph();
+                title.Font = FontFactory.GetFont(FontFactory.TIMES, 18f, BaseColor.BLUE);
+                title.Add("Cita COVID-19");
+                doc.Add(title);
+
+                doc.Add(new Paragraph(lbltxtx1.Text));
+                doc.Add(new Paragraph(lbltxt2.Text));
+                doc.Add(new Paragraph(lbltxt3.Text + date + lbltxt4.Text + hour + lbltxt5.Text));
+                doc.Add(new Paragraph(lbltxt6.Text + lbl_showPlace.Text));
+                doc.Add(new Paragraph(lbltxt7.Text));
+                doc.Add(new Paragraph(lbltxt8.Text));
+                doc.Add(new Paragraph(lbltxt9.Text));
+
+                doc.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No puede imprimir si no hay datos", "ERROR",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_Qregister_Click(object sender, EventArgs e)
+        {
+            if(txt_Qdui.Text == string.Empty)
+            {
+                MessageBox.Show("Inserte el Dui", "ERROR",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //Registrara a la fecha y hora en que se encuentra en la fila
+                var db = new VaccinationDBContext();
+
+                DateTime myDate = dtp_date.Value.Date + dtp_hour.Value.TimeOfDay;
+
+                VacQueue queue = new VacQueue();
+
+                queue.VacQueue1 = myDate;
+                db.Add(queue);
+                db.SaveChanges();
+
+                int Queueid = queue.Id;
+
+                var citizen = db.Citizens.FirstOrDefault(x => x.Dui == txt_Qdui.Text);
+                citizen.IdQueue = Queueid;
+                db.SaveChanges();
+
+                MessageBox.Show("Registrado correctamente", "Fila",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+           
+        }
+
+        private void btn_VaccineRegister_Click(object sender, EventArgs e)
+        {
+            if(txt_Vdui.Text == string.Empty)
+            {
+                MessageBox.Show("Inserte el Dui", "ERROR",
+                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //Registrara la fecha y hora en que recibio la vacuna
+                var db = new VaccinationDBContext();
+
+                DateTime myDate = dtp_Vdate.Value.Date + dtp_Vhour.Value.TimeOfDay;
+
+                Vaccination vaccine = new Vaccination();
+
+                vaccine.VaccinationDate = myDate;
+                db.Add(vaccine);
+                db.SaveChanges();
+
+                int VaccineId = vaccine.Id;
+                var citizen = db.Citizens.FirstOrDefault(x => x.Dui == txt_Vdui.Text);
+                citizen.IdVaccination = VaccineId;
+                db.SaveChanges();
+
+                MessageBox.Show("Registrado correctamente", "Vacuna",
+                               MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btn_ESregister_Click(object sender, EventArgs e)
+        {
+            if(txt_ESdui.Text == string.Empty)
+            {
+                MessageBox.Show("Inserte el Dui", "ERROR",
+                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //Registrara los efectos secundarios que el ciudadano presento al ponerse la vacuna
+                string DUI = txt_ESdui.Text;
+                var db = new VaccinationDBContext();
+
+                SideEffect effect = new SideEffect();
+                effect.Effect = txt_ESeffect.Text;
+                effect.SeTime = Int32.Parse(txt_EStime.Text);
+                db.Add(effect);
+                db.SaveChanges();
+
+                int SideEffectID = effect.Id;
+
+                CitizenxsideEffect CitizenEffects = new CitizenxsideEffect();
+                CitizenEffects.DuiCitizen = DUI;
+                CitizenEffects.IdSideEffect = SideEffectID;
+                db.Add(CitizenEffects);
+                db.SaveChanges();
+
+                txt_ESeffect.Clear();
+                txt_EStime.Clear();
+                MessageBox.Show("Efectos secundario registrado", "Vacuna",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btn_SDregister_Click(object sender, EventArgs e)
+        {
+            if(txt_SDdui.Text == string.Empty)
+            {
+                MessageBox.Show("Inserte el Dui", "ERROR",
+                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //El sistema le dara la fecha para la segunda dosis
+                var db = new VaccinationDBContext();
+                string dui = txt_SDdui.Text;
+
+                Random random = new Random();
+                int days = random.Next(42,56);
+                int minutes = random.Next(20, 60);
+
+                var appointment = db.Appointments.Where(x => x.DuiCitizen == dui).SingleOrDefault();
+
+                DateTime SecondDose = appointment.FirstDoseDate;
+
+                if(appointment == null)
+                {
+                    MessageBox.Show("El Dui insertado no existe", "ERROR",
+                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    appointment.SecondDoseTime = SecondDose.AddDays(days).AddMinutes(minutes);
+                    db.SaveChanges();
+                    MessageBox.Show("Segunda cita Guardada");
+                }
+                
+            }
         }
     }
 }

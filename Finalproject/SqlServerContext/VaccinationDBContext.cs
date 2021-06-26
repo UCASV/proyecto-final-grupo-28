@@ -37,7 +37,7 @@ namespace Finalproject.SqlServerContext
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=localhost;Database=VaccinationDB;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=ANDRES;Database=VaccinationDB;Trusted_Connection=True;");
             }
         }
 
@@ -160,7 +160,7 @@ namespace Finalproject.SqlServerContext
             modelBuilder.Entity<Citizen>(entity =>
             {
                 entity.HasKey(e => e.Dui)
-                    .HasName("PK__CITIZEN__D876F1BE0D183E7C");
+                    .HasName("PK__CITIZEN__D876F1BEDDEE894E");
 
                 entity.ToTable("CITIZEN");
 
@@ -343,9 +343,7 @@ namespace Finalproject.SqlServerContext
                     .IsUnicode(false)
                     .HasColumnName("effect");
 
-                entity.Property(e => e.SeTime)
-                    .HasColumnType("datetime")
-                    .HasColumnName("se_time");
+                entity.Property(e => e.SeTime).HasColumnName("se_time");
             });
 
             modelBuilder.Entity<StaffType>(entity =>
