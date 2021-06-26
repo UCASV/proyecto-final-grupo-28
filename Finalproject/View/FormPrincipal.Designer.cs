@@ -66,6 +66,7 @@ namespace Finalproject
             this.txtIdentifier = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.tabVaccination = new System.Windows.Forms.TabPage();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbltxt9 = new System.Windows.Forms.Label();
             this.lbltxt8 = new System.Windows.Forms.Label();
@@ -86,6 +87,7 @@ namespace Finalproject
             this.lblimpdui = new System.Windows.Forms.Label();
             this.lblimpname = new System.Windows.Forms.Label();
             this.tabDateFollowUp = new System.Windows.Forms.TabPage();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btn_search = new System.Windows.Forms.Button();
             this.btn_printDFU = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -98,6 +100,7 @@ namespace Finalproject
             this.txt_Dui = new System.Windows.Forms.TextBox();
             this.lbl_Dui = new System.Windows.Forms.Label();
             this.tabVaccinationProcess = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.btn_SDregister = new System.Windows.Forms.Button();
             this.txt_SDdui = new System.Windows.Forms.TextBox();
@@ -127,9 +130,6 @@ namespace Finalproject
             this.lbl_QCitdui = new System.Windows.Forms.Label();
             this.lbl_Qdate = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabDateProcess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisease)).BeginInit();
@@ -138,19 +138,19 @@ namespace Finalproject
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabVaccination.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabDateFollowUp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tabVaccinationProcess.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -598,6 +598,16 @@ namespace Finalproject
             this.tabVaccination.Text = "Vacunacion";
             this.tabVaccination.UseVisualStyleBackColor = true;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Finalproject.Properties.Resources._4f60305f48b01e05db6b53083abf71dd2;
+            this.pictureBox4.Location = new System.Drawing.Point(8, 7);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(93, 62);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 17;
+            this.pictureBox4.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Finalproject.Properties.Resources._2109c_print_button;
@@ -814,6 +824,16 @@ namespace Finalproject
             this.tabDateFollowUp.Text = "Seguimiento de cita";
             this.tabDateFollowUp.UseVisualStyleBackColor = true;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Finalproject.Properties.Resources._4f60305f48b01e05db6b53083abf71dd2;
+            this.pictureBox5.Location = new System.Drawing.Point(738, 7);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(118, 89);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 18;
+            this.pictureBox5.TabStop = false;
+            // 
             // btn_search
             // 
             this.btn_search.BackColor = System.Drawing.Color.White;
@@ -969,6 +989,16 @@ namespace Finalproject
             this.tabVaccinationProcess.TabIndex = 3;
             this.tabVaccinationProcess.Text = "Proceso de vacunacion";
             this.tabVaccinationProcess.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Finalproject.Properties.Resources._4f60305f48b01e05db6b53083abf71dd;
+            this.pictureBox3.Location = new System.Drawing.Point(328, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(157, 103);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 15;
+            this.pictureBox3.TabStop = false;
             // 
             // groupBox7
             // 
@@ -1294,36 +1324,6 @@ namespace Finalproject
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Finalproject.Properties.Resources._4f60305f48b01e05db6b53083abf71dd;
-            this.pictureBox3.Location = new System.Drawing.Point(328, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(157, 103);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 15;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Finalproject.Properties.Resources._4f60305f48b01e05db6b53083abf71dd2;
-            this.pictureBox4.Location = new System.Drawing.Point(8, 7);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(93, 62);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 17;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Finalproject.Properties.Resources._4f60305f48b01e05db6b53083abf71dd2;
-            this.pictureBox5.Location = new System.Drawing.Point(738, 7);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(118, 89);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 18;
-            this.pictureBox5.TabStop = false;
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1352,14 +1352,17 @@ namespace Finalproject
             this.groupBox1.PerformLayout();
             this.tabVaccination.ResumeLayout(false);
             this.tabVaccination.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tabDateFollowUp.ResumeLayout(false);
             this.tabDateFollowUp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tabVaccinationProcess.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -1369,9 +1372,6 @@ namespace Finalproject
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }

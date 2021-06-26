@@ -127,7 +127,7 @@ namespace Finalproject
             this.MaximizeBox = false;
             this.Name = "FormNewPltManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LogIng Info";
+            this.Text = "INFORMACION";
             this.Load += new System.EventHandler(this.FormNewPltManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
