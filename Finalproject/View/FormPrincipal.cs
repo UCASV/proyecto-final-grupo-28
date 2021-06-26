@@ -374,28 +374,51 @@ namespace Finalproject
 
         private void btnimprimir_Click(object sender, EventArgs e)
         {
-            //Genera el documento PDF
-            var pdif = lblimpname.Text;
+            To_pdf(lblfeha1.Text,lblhora2.Text,lblplacevacun.Text);
+        }
 
-
+        private void To_pdf(string date, string hour, string place)
+        {
+            //Generara el documento pdf, ademas de guardarlo donde el gestor desee y se abrira posteriormente
             Document doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream($"{pdif}.pdf", FileMode.Create));
-            doc.Open();
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.InitialDirectory = @"C:";
+            saveFileDialog1.Title = "Guardar Comprobante";
+            saveFileDialog1.DefaultExt = "pdf";
+            saveFileDialog1.Filter = "pdf Files (*.pdf)|*.pdf";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+            string filename = "";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                filename = saveFileDialog1.FileName;
+            }
 
-            Paragraph title = new Paragraph();
-            title.Font = FontFactory.GetFont(FontFactory.TIMES, 18f, BaseColor.BLUE);
-            title.Add("Cita COVID-19");
-            doc.Add(title);
+            if (filename.Trim() != "")
+            {
+                FileStream file = new FileStream(filename,
+                FileMode.OpenOrCreate,
+                FileAccess.ReadWrite,
+                FileShare.ReadWrite);
+                PdfWriter.GetInstance(doc, file);
+                doc.Open();
 
-            doc.Add(new Paragraph(lbltxtx1.Text));
-            doc.Add(new Paragraph(lbltxt2.Text));
-            doc.Add(new Paragraph(lbltxt3.Text + lblfeha1.Text + lbltxt4.Text + lblhora2.Text + lbltxt5.Text));
-            doc.Add(new Paragraph(lbltxt6.Text + lblplacevacun.Text));
-            doc.Add(new Paragraph(lbltxt7.Text));
-            doc.Add(new Paragraph(lbltxt8.Text));
-            doc.Add(new Paragraph(lbltxt9.Text));
+                Paragraph title = new Paragraph();
+                title.Font = FontFactory.GetFont(FontFactory.TIMES, 18f, BaseColor.BLUE);
+                title.Add("Cita COVID-19");
+                doc.Add(title);
 
-            doc.Close();
+                doc.Add(new Paragraph(lbltxtx1.Text));
+                doc.Add(new Paragraph(lbltxt2.Text));
+                doc.Add(new Paragraph(lbltxt3.Text + date + lbltxt4.Text + hour + lbltxt5.Text));
+                doc.Add(new Paragraph(lbltxt6.Text + place));
+                doc.Add(new Paragraph(lbltxt7.Text));
+                doc.Add(new Paragraph(lbltxt8.Text));
+                doc.Add(new Paragraph(lbltxt9.Text));
+
+                doc.Close();
+                new Process { StartInfo = new ProcessStartInfo(filename) { UseShellExecute = true } }.Start();
+            }
 
         }
 
@@ -474,7 +497,7 @@ namespace Finalproject
         {
             Random random = new Random();
 
-            string[] Place = { " Megacentro Hospital", "Hospital El Salvador", "Gran Via"};
+            string[] Place = { " Megacentro Hospital", " Hospital El Salvador", " Gran Via"};
 
             int Pindex = random.Next(Place.Length);
 
@@ -529,25 +552,7 @@ namespace Finalproject
                 int Tdlength = Totaldate.Length;
                 string hour = Totaldate.Substring((Tdlength - 6), 6);
 
-
-                Document doc = new Document();
-                PdfWriter.GetInstance(doc, new FileStream($"{pdif}.pdf", FileMode.Create));
-                doc.Open();
-
-                Paragraph title = new Paragraph();
-                title.Font = FontFactory.GetFont(FontFactory.TIMES, 18f, BaseColor.BLUE);
-                title.Add("Cita COVID-19");
-                doc.Add(title);
-
-                doc.Add(new Paragraph(lbltxtx1.Text));
-                doc.Add(new Paragraph(lbltxt2.Text));
-                doc.Add(new Paragraph(lbltxt3.Text + date + lbltxt4.Text + hour + lbltxt5.Text));
-                doc.Add(new Paragraph(lbltxt6.Text + lbl_showPlace.Text));
-                doc.Add(new Paragraph(lbltxt7.Text));
-                doc.Add(new Paragraph(lbltxt8.Text));
-                doc.Add(new Paragraph(lbltxt9.Text));
-
-                doc.Close();
+                To_pdf(date,hour,lbl_showPlace.Text);
             }
             catch
             {
