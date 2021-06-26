@@ -163,6 +163,16 @@ namespace Finalproject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _4f60305f48b01e05db6b53083abf71dd3 {
+            get {
+                object obj = ResourceManager.GetObject("4f60305f48b01e05db6b53083abf71dd3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _585e4bf3cb11b227491c339a {
             get {
                 object obj = ResourceManager.GetObject("585e4bf3cb11b227491c339a", resourceCulture);
@@ -216,6 +226,16 @@ namespace Finalproject.Properties {
         internal static System.Drawing.Bitmap descarga1 {
             get {
                 object obj = ResourceManager.GetObject("descarga1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap descarga2 {
+            get {
+                object obj = ResourceManager.GetObject("descarga2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +336,16 @@ namespace Finalproject.Properties {
         internal static System.Drawing.Bitmap wp2863773 {
             get {
                 object obj = ResourceManager.GetObject("wp2863773", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wp28637731 {
+            get {
+                object obj = ResourceManager.GetObject("wp28637731", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
