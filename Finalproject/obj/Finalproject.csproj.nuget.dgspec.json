@@ -1,21 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\Documents\\POO\\Proyecto final BD.POO\\proyecto-final-grupo-28\\Finalproject\\Finalproject.csproj": {}
+    "C:\\Users\\kev_n\\Documents\\ARCHIVOS UCA\\finallll2.0\\proyecto-final-grupo-28\\Finalproject\\Finalproject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\Documents\\POO\\Proyecto final BD.POO\\proyecto-final-grupo-28\\Finalproject\\Finalproject.csproj": {
+    "C:\\Users\\kev_n\\Documents\\ARCHIVOS UCA\\finallll2.0\\proyecto-final-grupo-28\\Finalproject\\Finalproject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\POO\\Proyecto final BD.POO\\proyecto-final-grupo-28\\Finalproject\\Finalproject.csproj",
+        "projectUniqueName": "C:\\Users\\kev_n\\Documents\\ARCHIVOS UCA\\finallll2.0\\proyecto-final-grupo-28\\Finalproject\\Finalproject.csproj",
         "projectName": "Finalproject",
-        "projectPath": "C:\\Users\\hp\\Documents\\POO\\Proyecto final BD.POO\\proyecto-final-grupo-28\\Finalproject\\Finalproject.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\POO\\Proyecto final BD.POO\\proyecto-final-grupo-28\\Finalproject\\obj\\",
+        "projectPath": "C:\\Users\\kev_n\\Documents\\ARCHIVOS UCA\\finallll2.0\\proyecto-final-grupo-28\\Finalproject\\Finalproject.csproj",
+        "packagesPath": "C:\\Users\\kev_n\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kev_n\\Documents\\ARCHIVOS UCA\\finallll2.0\\proyecto-final-grupo-28\\Finalproject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\kev_n\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0-windows7.0"

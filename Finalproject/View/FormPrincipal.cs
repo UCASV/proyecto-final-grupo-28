@@ -1,26 +1,23 @@
 ﻿using Finalproject.SqlServerContext;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.EntityFrameworkCore;
 using Finalproject.View;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using System.Diagnostics;
-using Finalproject.SqlServerContext;
+using Finalproject.Services;
 
 namespace Finalproject
 {
     public partial class FrmPrincipal : Form
     {
+        private NewCitizen citizennew;
+
         private bool stateInst = false;
         private bool stateDis = false;
         private string expressionDUI = "^0[0-9]{7}-[0-9]{1}$";
@@ -33,6 +30,7 @@ namespace Finalproject
         public FrmPrincipal(string user)
         {
             InitializeComponent();
+            citizennew = new NewCitizen();
             this.user = user;
         }
 
@@ -114,7 +112,7 @@ namespace Finalproject
 
             this.Activated += (s, evt) => { UpdateCMB(); };
 
-            
+
         }
 
         private void chkDiseaseAsk_CheckedChanged(object sender, EventArgs e)
@@ -246,8 +244,7 @@ namespace Finalproject
                         {
                             newCitizen.Identifier = txtIdentifier.Text;
                             newCitizen.IdInstitution = cmbInstitution.SelectedIndex + 1;
-                            db.Add(newCitizen);
-                            db.SaveChanges();
+                            citizennew.create(newCitizen);
                             Appointment();
                             MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
                               MessageBoxIcon.Information);
@@ -265,8 +262,7 @@ namespace Finalproject
                         }
                         else
                         {
-                            db.Add(newCitizen);
-                            db.SaveChanges();
+                            citizennew.create(newCitizen);
                             for (int i = 0; i < Int32.Parse(dgvDisease.RowCount.ToString()); i++)
                             {
                                 diseases.Add(new ChronicDisease(dgvDisease.Rows[i].Cells[0].Value.ToString(), txtDui.Text, Int32.Parse(dgvDisease.Rows[i].Cells[2].Value.ToString())));
@@ -292,8 +288,7 @@ namespace Finalproject
                         {
                             newCitizen.Identifier = txtIdentifier.Text;
                             newCitizen.IdInstitution = cmbInstitution.SelectedIndex + 1;
-                            db.Add(newCitizen);
-                            db.SaveChanges();
+                            citizennew.create(newCitizen);
 
                             for (int i = 0; i < Int32.Parse(dgvDisease.RowCount.ToString()); i++)
                             {
@@ -311,8 +306,7 @@ namespace Finalproject
                     // Si ningún checkbox está marcado
                     else
                     {
-                        db.Add(newCitizen);
-                        db.SaveChanges();
+                        citizennew.create(newCitizen);
 
                         Appointment();
                         MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
@@ -374,7 +368,7 @@ namespace Finalproject
 
         private void btnimprimir_Click(object sender, EventArgs e)
         {
-            To_pdf(lblfeha1.Text,lblhora2.Text,lblplacevacun.Text);
+            To_pdf(lblfeha1.Text, lblhora2.Text, lblplacevacun.Text);
         }
 
         private void To_pdf(string date, string hour, string place)
@@ -455,8 +449,8 @@ namespace Finalproject
                 Citizen Searchcitizen = db.Citizens.Find(txt_Dui.Text);
 
 
-                Appointment SearchAppointment = db.Appointments.FirstOrDefault(x=> x.DuiCitizen == txt_Dui.Text);
-                
+                Appointment SearchAppointment = db.Appointments.FirstOrDefault(x => x.DuiCitizen == txt_Dui.Text);
+
                 //Mostrando los datos de la cita con el DUI insertado
                 Citizen citizen = new Citizen();
                 Appointment appointment = new Appointment();
@@ -468,7 +462,7 @@ namespace Finalproject
                 lbl_showname.Text = citizen.CitizenName;
                 lbl_showDate.Text = appointment.FirstDoseDate.ToString("yyyy/MM/dd hh:mm");
                 lbl_showPlace.Text = appointment.Place;
-                
+
             }
         }
 
@@ -497,7 +491,7 @@ namespace Finalproject
         {
             Random random = new Random();
 
-            string[] Place = { " Megacentro Hospital", " Hospital El Salvador", " Gran Via"};
+            string[] Place = { " Megacentro Hospital", " Hospital El Salvador", " Gran Via" };
 
             int Pindex = random.Next(Place.Length);
 
@@ -520,7 +514,7 @@ namespace Finalproject
         }
 
         //Funcion que mostrara los datos de la cita que genero la aplicacion
-        private void Appointment ()
+        private void Appointment()
         {
             var date = RandomDate();
             var hour = RandomHour();
@@ -530,7 +524,7 @@ namespace Finalproject
             lblhora2.Text = hour.ToString("hh:mm");
             lblplacevacun.Text = place;
 
-            DateTime TotalDate = new DateTime(date.Year,date.Month,date.Day,hour.Hour,hour.Minute,hour.Second);
+            DateTime TotalDate = new DateTime(date.Year, date.Month, date.Day, hour.Hour, hour.Minute, hour.Second);
 
             RegisterAppointment(TotalDate, place);
         }
@@ -552,7 +546,7 @@ namespace Finalproject
                 int Tdlength = Totaldate.Length;
                 string hour = Totaldate.Substring((Tdlength - 6), 6);
 
-                To_pdf(date,hour,lbl_showPlace.Text);
+                To_pdf(date, hour, lbl_showPlace.Text);
             }
             catch
             {
@@ -563,7 +557,7 @@ namespace Finalproject
 
         private void btn_Qregister_Click(object sender, EventArgs e)
         {
-            if(txt_Qdui.Text == string.Empty)
+            if (txt_Qdui.Text == string.Empty)
             {
                 MessageBox.Show("Inserte el Dui", "ERROR",
                            MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -590,12 +584,12 @@ namespace Finalproject
                 MessageBox.Show("Registrado correctamente", "Fila",
                            MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-           
+
         }
 
         private void btn_VaccineRegister_Click(object sender, EventArgs e)
         {
-            if(txt_Vdui.Text == string.Empty)
+            if (txt_Vdui.Text == string.Empty)
             {
                 MessageBox.Show("Inserte el Dui", "ERROR",
                           MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -625,7 +619,7 @@ namespace Finalproject
 
         private void btn_ESregister_Click(object sender, EventArgs e)
         {
-            if(txt_ESdui.Text == string.Empty)
+            if (txt_ESdui.Text == string.Empty)
             {
                 MessageBox.Show("Inserte el Dui", "ERROR",
                           MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -659,7 +653,7 @@ namespace Finalproject
 
         private void btn_SDregister_Click(object sender, EventArgs e)
         {
-            if(txt_SDdui.Text == string.Empty)
+            if (txt_SDdui.Text == string.Empty)
             {
                 MessageBox.Show("Inserte el Dui", "ERROR",
                           MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -671,14 +665,14 @@ namespace Finalproject
                 string dui = txt_SDdui.Text;
 
                 Random random = new Random();
-                int days = random.Next(42,56);
+                int days = random.Next(42, 56);
                 int minutes = random.Next(20, 60);
 
                 var appointment = db.Appointments.Where(x => x.DuiCitizen == dui).SingleOrDefault();
 
                 DateTime SecondDose = appointment.FirstDoseDate;
 
-                if(appointment == null)
+                if (appointment == null)
                 {
                     MessageBox.Show("El Dui insertado no existe", "ERROR",
                           MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -689,7 +683,7 @@ namespace Finalproject
                     db.SaveChanges();
                     MessageBox.Show("Segunda cita Guardada");
                 }
-                
+
             }
         }
     }

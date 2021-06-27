@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Finalproject.Services;
 using Finalproject.SqlServerContext;
 
 namespace Finalproject
 {
     public partial class FormNewPltManager : Form
     {
+        private newStaff NewStasff;
+
+
         public string user { get; set; }
         public string name { get; set; }
         public string email { get; set; }
@@ -21,6 +25,7 @@ namespace Finalproject
         public FormNewPltManager(string user, string name, string email, string address)
         {
             InitializeComponent();
+            NewStasff = new newStaff();
             this.user = user;
             this.name = name;
             this.email = email;
@@ -58,8 +63,7 @@ namespace Finalproject
                 NewStaff.UserStaff = user;
                 NewStaff.AddressStaff = address;
                 NewStaff.IdType = type;
-                db.Add(NewStaff);
-                db.SaveChanges();
+                NewStasff.create(NewStaff);
 
                 MessageBox.Show("Registered successfully", "Staff",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -75,7 +79,7 @@ namespace Finalproject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if(txt_password.UseSystemPasswordChar == true)
+            if (txt_password.UseSystemPasswordChar == true)
             {
                 txt_password.UseSystemPasswordChar = false;
             }
