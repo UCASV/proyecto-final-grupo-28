@@ -33,7 +33,7 @@ namespace Finalproject.View
                 MessageBox.Show("No se permiten campos vacios", "ERROR", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
             }
-            else 
+            else
             {
                 var db = new VaccinationDBContext();
 
@@ -46,11 +46,11 @@ namespace Finalproject.View
                 MessageBox.Show("Institución añadida", "Instituciones", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
 
-               this.DialogResult  = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
 
-               this.Close();
+                this.Close();
             }
         }
-        
+
     }
 }

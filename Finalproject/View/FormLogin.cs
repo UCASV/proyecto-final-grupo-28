@@ -74,7 +74,7 @@ namespace Finalproject
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if(txtPassword.UseSystemPasswordChar == true)
+            if (txtPassword.UseSystemPasswordChar == true)
             {
                 txtPassword.UseSystemPasswordChar = false;
             }
