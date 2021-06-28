@@ -54,14 +54,14 @@ Al finalizar la vacunación en caso de ser la primera dosis, se escribirá el DU
 
 --Simbolos de Error--
 
-Login: Al querer ingresar un usuario que no sea gestor o un usuario que no exista, es necesario revisar que el usuario/contraseña estén bien escritos o que estén registrados	 
-Registro empleado: Al dejar los campos vacíos aparecerá el recuadro, es necesario que los campos se llenen correctamente	 
-Registro empleado: Al querer registrar un usuario con el mismo identificador aparecerá el error, es necesario verificar que este usuario no exista para registrarlo.	 
-Registro empleado: Si se ingresa en el campo de Email texto sin formato de correo, aparecerá la ventana, es necesario que siga el formato: [texto]@[correo].com	 
-Principal, Proceso de cita: Al ingresar un DUI o teléfono inválido se mostrará la ventana, el teléfono debe empezar con 2,6 o 7 y tener 8 dígitos para que sea válido, y el dui empezar con cero seguido de 8 caracteres y un -# de último.	 
-Principal, Proceso de cita: Si no pertenece a un grupo de prioridad, no dejará registrar al paciente, para pertenecer a este grupo debe o tener una edad arriba de 70 años o ser mayor de 18 años y ser parte del sistema de salud, seguridad nacional o Gobierno central o padecer de alguna enfermedad no transmisible o discapacidad.	 
-Principal, Proceso de cita: Si se ingresa en el campo de Email texto sin formato de correo, aparecerá la ventana, es necesario que siga el formato: [texto]@[correo].com	 
+-Login: Al querer ingresar un usuario que no sea gestor o un usuario que no exista, es necesario revisar que el usuario/contraseña estén bien escritos o que estén registrados 
+-Registro empleado: Al dejar los campos vacíos aparecerá el recuadro, es necesario que los campos se llenen correctamente	 
+-Registro empleado: Al querer registrar un usuario con el mismo identificador aparecerá el error, es necesario verificar que este usuario no exista para registrarlo.	 
+-Registro empleado: Si se ingresa en el campo de Email texto sin formato de correo, aparecerá la ventana, es necesario que siga el formato: [texto]@[correo].com	 
+-Principal, Proceso de cita: Al ingresar un DUI o teléfono inválido se mostrará la ventana, el teléfono debe empezar con 2,6 o 7 y tener 8 dígitos para que sea válido, y el dui empezar con cero seguido de 8 caracteres y un -# de último.	 
+-Principal, Proceso de cita: Si no pertenece a un grupo de prioridad, no dejará registrar al paciente, para pertenecer a este grupo debe o tener una edad arriba de 70 años o ser mayor de 18 años y ser parte del sistema de salud, seguridad nacional o Gobierno central o padecer de alguna enfermedad no transmisible o discapacidad.	 
+-Principal, Proceso de cita: Si se ingresa en el campo de Email texto sin formato de correo, aparecerá la ventana, es necesario que siga el formato: [texto]@[correo].com	 
 Principal, seguimiento de cita: Al ingresar un DUI no registrado en el buscador se mostrará la ventana, se debe verificar que el DUI ingresado esté registrado, si no lo encuentra es porque debe hacer su primer registro	 
-Principal, seguimiento de cita: Si no se ha buscado nada o no ha encontrado el DUI, no permitirá imprimir ya que los campos están vacíos, es necesario que estos contengan algo para porder imprimir.	 
-Principal, proceso de vacunación: Si se ingresa un DUI en los campos que no ha sido registrado se mostrará la pestaña, se debe primero registrar al paciente y el programa dará la fecha indicada	 
+-Principal, seguimiento de cita: Si no se ha buscado nada o no ha encontrado el DUI, no permitirá imprimir ya que los campos están vacíos, es necesario que estos contengan algo para porder imprimir.	 
+-Principal, proceso de vacunación: Si se ingresa un DUI en los campos que no ha sido registrado se mostrará la pestaña, se debe primero registrar al paciente y el programa dará la fecha indicada	 
 
