@@ -1,5 +1,6 @@
 # proyecto-final-grupo-28
 proyecto-final-grupo-28 created by GitHub Classroom
+
 *ASPECTOS TECNICOS*
 - Visual Studio 2019
 - .NET 5.0 
