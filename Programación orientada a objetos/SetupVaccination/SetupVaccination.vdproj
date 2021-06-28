@@ -21,7 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C30D02CDB6AD4A8488FB7AD465C1AFA5"
+        "MsmKey" = "8:_A511BAF7E6524787AD831FEA1DA854F1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -43,6 +43,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -59,6 +67,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -76,13 +92,23 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_F9BE5759BC984FB1B943C2B65E4C80C9"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
             }
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C30D02CDB6AD4A8488FB7AD465C1AFA5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A511BAF7E6524787AD831FEA1DA854F1"
             {
-            "SourcePath" = "8:..\\..\\..\\ESA.ico"
+            "SourcePath" = "8:..\\Finalproject\\ESA.ico"
             "TargetName" = "8:ESA.ico"
             "Tag" = "8:"
             "Folder" = "8:_5939120D9CA8438E8C3E036FEB4BB75C"
@@ -299,7 +325,7 @@
             "Target" = "8:_19988B19CED2425E8DF219212ED4A481"
             "Folder" = "8:_3A16E8890EF94608AA8AE7E9285F5C4D"
             "WorkingFolder" = "8:_5939120D9CA8438E8C3E036FEB4BB75C"
-            "Icon" = "8:_C30D02CDB6AD4A8488FB7AD465C1AFA5"
+            "Icon" = "8:_A511BAF7E6524787AD831FEA1DA854F1"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_43C5CC0847F440799C550D9476822AC7"
@@ -313,7 +339,7 @@
             "Target" = "8:_19988B19CED2425E8DF219212ED4A481"
             "Folder" = "8:_38FB42431B2545D19AA7DFDB3C67EFD6"
             "WorkingFolder" = "8:_5939120D9CA8438E8C3E036FEB4BB75C"
-            "Icon" = "8:_C30D02CDB6AD4A8488FB7AD465C1AFA5"
+            "Icon" = "8:_A511BAF7E6524787AD831FEA1DA854F1"
             "Feature" = "8:"
             }
         }

@@ -87,6 +87,14 @@ namespace Finalproject
             this.lblimpdui = new System.Windows.Forms.Label();
             this.lblimpname = new System.Windows.Forms.Label();
             this.tabDateFollowUp = new System.Windows.Forms.TabPage();
+            this.btn_ShowSDInfo = new System.Windows.Forms.Button();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_ShowSDPlace = new System.Windows.Forms.Label();
+            this.lbl_ShowSDDate = new System.Windows.Forms.Label();
+            this.lbl_SDDate = new System.Windows.Forms.Label();
+            this.lbl_SDPlace = new System.Windows.Forms.Label();
+            this.lbl_ShowSDname = new System.Windows.Forms.Label();
+            this.lbl_SDName = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btn_search = new System.Windows.Forms.Button();
             this.btn_printDFU = new System.Windows.Forms.Button();
@@ -133,14 +141,8 @@ namespace Finalproject
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_ShowSDPlace = new System.Windows.Forms.Label();
-            this.lbl_ShowSDDate = new System.Windows.Forms.Label();
-            this.lbl_SDDate = new System.Windows.Forms.Label();
-            this.lbl_SDPlace = new System.Windows.Forms.Label();
-            this.lbl_ShowSDname = new System.Windows.Forms.Label();
-            this.lbl_SDName = new System.Windows.Forms.Label();
-            this.btn_ShowSDInfo = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabDateProcess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisease)).BeginInit();
@@ -153,6 +155,7 @@ namespace Finalproject
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabDateFollowUp.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tabVaccinationProcess.SuspendLayout();
@@ -163,7 +166,6 @@ namespace Finalproject
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -801,6 +803,8 @@ namespace Finalproject
             // 
             // tabDateFollowUp
             // 
+            this.tabDateFollowUp.Controls.Add(this.label7);
+            this.tabDateFollowUp.Controls.Add(this.label6);
             this.tabDateFollowUp.Controls.Add(this.btn_ShowSDInfo);
             this.tabDateFollowUp.Controls.Add(this.tableLayoutPanel5);
             this.tabDateFollowUp.Controls.Add(this.pictureBox5);
@@ -815,6 +819,111 @@ namespace Finalproject
             this.tabDateFollowUp.TabIndex = 2;
             this.tabDateFollowUp.Text = "Seguimiento de cita";
             this.tabDateFollowUp.UseVisualStyleBackColor = true;
+            // 
+            // btn_ShowSDInfo
+            // 
+            this.btn_ShowSDInfo.BackColor = System.Drawing.Color.White;
+            this.btn_ShowSDInfo.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
+            this.btn_ShowSDInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ShowSDInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_ShowSDInfo.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btn_ShowSDInfo.Location = new System.Drawing.Point(494, 375);
+            this.btn_ShowSDInfo.Name = "btn_ShowSDInfo";
+            this.btn_ShowSDInfo.Size = new System.Drawing.Size(101, 34);
+            this.btn_ShowSDInfo.TabIndex = 19;
+            this.btn_ShowSDInfo.Text = "Imprimir";
+            this.btn_ShowSDInfo.UseVisualStyleBackColor = false;
+            this.btn_ShowSDInfo.Click += new System.EventHandler(this.btn_ShowSDInfo_Click);
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel5.Controls.Add(this.lbl_ShowSDPlace, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.lbl_ShowSDDate, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.lbl_SDDate, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.lbl_SDPlace, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.lbl_ShowSDname, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lbl_SDName, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(397, 147);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(279, 197);
+            this.tableLayoutPanel5.TabIndex = 6;
+            // 
+            // lbl_ShowSDPlace
+            // 
+            this.lbl_ShowSDPlace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_ShowSDPlace.AutoSize = true;
+            this.lbl_ShowSDPlace.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_ShowSDPlace.ForeColor = System.Drawing.Color.Navy;
+            this.lbl_ShowSDPlace.Location = new System.Drawing.Point(86, 130);
+            this.lbl_ShowSDPlace.Name = "lbl_ShowSDPlace";
+            this.lbl_ShowSDPlace.Size = new System.Drawing.Size(190, 21);
+            this.lbl_ShowSDPlace.TabIndex = 5;
+            this.lbl_ShowSDPlace.Text = " ";
+            // 
+            // lbl_ShowSDDate
+            // 
+            this.lbl_ShowSDDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_ShowSDDate.AutoSize = true;
+            this.lbl_ShowSDDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_ShowSDDate.ForeColor = System.Drawing.Color.Navy;
+            this.lbl_ShowSDDate.Location = new System.Drawing.Point(86, 65);
+            this.lbl_ShowSDDate.Name = "lbl_ShowSDDate";
+            this.lbl_ShowSDDate.Size = new System.Drawing.Size(190, 21);
+            this.lbl_ShowSDDate.TabIndex = 4;
+            this.lbl_ShowSDDate.Text = " ";
+            // 
+            // lbl_SDDate
+            // 
+            this.lbl_SDDate.AutoSize = true;
+            this.lbl_SDDate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_SDDate.Location = new System.Drawing.Point(3, 65);
+            this.lbl_SDDate.Name = "lbl_SDDate";
+            this.lbl_SDDate.Size = new System.Drawing.Size(56, 21);
+            this.lbl_SDDate.TabIndex = 1;
+            this.lbl_SDDate.Text = "Fecha:";
+            // 
+            // lbl_SDPlace
+            // 
+            this.lbl_SDPlace.AutoSize = true;
+            this.lbl_SDPlace.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_SDPlace.Location = new System.Drawing.Point(3, 130);
+            this.lbl_SDPlace.Name = "lbl_SDPlace";
+            this.lbl_SDPlace.Size = new System.Drawing.Size(56, 21);
+            this.lbl_SDPlace.TabIndex = 2;
+            this.lbl_SDPlace.Text = "Lugar:";
+            // 
+            // lbl_ShowSDname
+            // 
+            this.lbl_ShowSDname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_ShowSDname.AutoSize = true;
+            this.lbl_ShowSDname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_ShowSDname.ForeColor = System.Drawing.Color.Navy;
+            this.lbl_ShowSDname.Location = new System.Drawing.Point(86, 0);
+            this.lbl_ShowSDname.Name = "lbl_ShowSDname";
+            this.lbl_ShowSDname.Size = new System.Drawing.Size(190, 21);
+            this.lbl_ShowSDname.TabIndex = 3;
+            this.lbl_ShowSDname.Text = " ";
+            // 
+            // lbl_SDName
+            // 
+            this.lbl_SDName.AutoSize = true;
+            this.lbl_SDName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_SDName.Location = new System.Drawing.Point(3, 0);
+            this.lbl_SDName.Name = "lbl_SDName";
+            this.lbl_SDName.Size = new System.Drawing.Size(75, 21);
+            this.lbl_SDName.TabIndex = 0;
+            this.lbl_SDName.Text = "Nombre:";
             // 
             // pictureBox5
             // 
@@ -1334,110 +1443,25 @@ namespace Finalproject
             this.label5.TabIndex = 4;
             this.label5.Text = " ";
             // 
-            // tableLayoutPanel5
+            // label6
             // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel5.Controls.Add(this.lbl_ShowSDPlace, 1, 2);
-            this.tableLayoutPanel5.Controls.Add(this.lbl_ShowSDDate, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.lbl_SDDate, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.lbl_SDPlace, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.lbl_ShowSDname, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.lbl_SDName, 0, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(397, 147);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 3;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(279, 197);
-            this.tableLayoutPanel5.TabIndex = 6;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(49, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(252, 21);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Información de la primera dosis";
             // 
-            // lbl_ShowSDPlace
+            // label7
             // 
-            this.lbl_ShowSDPlace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_ShowSDPlace.AutoSize = true;
-            this.lbl_ShowSDPlace.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ShowSDPlace.ForeColor = System.Drawing.Color.Navy;
-            this.lbl_ShowSDPlace.Location = new System.Drawing.Point(86, 130);
-            this.lbl_ShowSDPlace.Name = "lbl_ShowSDPlace";
-            this.lbl_ShowSDPlace.Size = new System.Drawing.Size(190, 21);
-            this.lbl_ShowSDPlace.TabIndex = 5;
-            this.lbl_ShowSDPlace.Text = " ";
-            // 
-            // lbl_ShowSDDate
-            // 
-            this.lbl_ShowSDDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_ShowSDDate.AutoSize = true;
-            this.lbl_ShowSDDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ShowSDDate.ForeColor = System.Drawing.Color.Navy;
-            this.lbl_ShowSDDate.Location = new System.Drawing.Point(86, 65);
-            this.lbl_ShowSDDate.Name = "lbl_ShowSDDate";
-            this.lbl_ShowSDDate.Size = new System.Drawing.Size(190, 21);
-            this.lbl_ShowSDDate.TabIndex = 4;
-            this.lbl_ShowSDDate.Text = " ";
-            // 
-            // lbl_SDDate
-            // 
-            this.lbl_SDDate.AutoSize = true;
-            this.lbl_SDDate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_SDDate.Location = new System.Drawing.Point(3, 65);
-            this.lbl_SDDate.Name = "lbl_SDDate";
-            this.lbl_SDDate.Size = new System.Drawing.Size(56, 21);
-            this.lbl_SDDate.TabIndex = 1;
-            this.lbl_SDDate.Text = "Fecha:";
-            // 
-            // lbl_SDPlace
-            // 
-            this.lbl_SDPlace.AutoSize = true;
-            this.lbl_SDPlace.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_SDPlace.Location = new System.Drawing.Point(3, 130);
-            this.lbl_SDPlace.Name = "lbl_SDPlace";
-            this.lbl_SDPlace.Size = new System.Drawing.Size(56, 21);
-            this.lbl_SDPlace.TabIndex = 2;
-            this.lbl_SDPlace.Text = "Lugar:";
-            // 
-            // lbl_ShowSDname
-            // 
-            this.lbl_ShowSDname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_ShowSDname.AutoSize = true;
-            this.lbl_ShowSDname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ShowSDname.ForeColor = System.Drawing.Color.Navy;
-            this.lbl_ShowSDname.Location = new System.Drawing.Point(86, 0);
-            this.lbl_ShowSDname.Name = "lbl_ShowSDname";
-            this.lbl_ShowSDname.Size = new System.Drawing.Size(190, 21);
-            this.lbl_ShowSDname.TabIndex = 3;
-            this.lbl_ShowSDname.Text = " ";
-            // 
-            // lbl_SDName
-            // 
-            this.lbl_SDName.AutoSize = true;
-            this.lbl_SDName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_SDName.Location = new System.Drawing.Point(3, 0);
-            this.lbl_SDName.Name = "lbl_SDName";
-            this.lbl_SDName.Size = new System.Drawing.Size(75, 21);
-            this.lbl_SDName.TabIndex = 0;
-            this.lbl_SDName.Text = "Nombre:";
-            // 
-            // btn_ShowSDInfo
-            // 
-            this.btn_ShowSDInfo.BackColor = System.Drawing.Color.White;
-            this.btn_ShowSDInfo.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
-            this.btn_ShowSDInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ShowSDInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_ShowSDInfo.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btn_ShowSDInfo.Location = new System.Drawing.Point(494, 375);
-            this.btn_ShowSDInfo.Name = "btn_ShowSDInfo";
-            this.btn_ShowSDInfo.Size = new System.Drawing.Size(101, 34);
-            this.btn_ShowSDInfo.TabIndex = 19;
-            this.btn_ShowSDInfo.Text = "Imprimir";
-            this.btn_ShowSDInfo.UseVisualStyleBackColor = false;
-            this.btn_ShowSDInfo.Click += new System.EventHandler(this.btn_ShowSDInfo_Click);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(397, 98);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(257, 21);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Información de la segunda dosis";
             // 
             // FrmPrincipal
             // 
@@ -1472,6 +1496,8 @@ namespace Finalproject
             this.tableLayoutPanel2.PerformLayout();
             this.tabDateFollowUp.ResumeLayout(false);
             this.tabDateFollowUp.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -1488,8 +1514,6 @@ namespace Finalproject
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1607,5 +1631,7 @@ namespace Finalproject
         private System.Windows.Forms.Label lbl_SDPlace;
         private System.Windows.Forms.Label lbl_ShowSDname;
         private System.Windows.Forms.Label lbl_SDName;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
