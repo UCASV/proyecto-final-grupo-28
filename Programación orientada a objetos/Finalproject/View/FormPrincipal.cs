@@ -459,12 +459,16 @@ namespace Finalproject
                 
                 
                 appointment.FirstDoseDate = SearchAppointment.FirstDoseDate;
+                appointment.SecondDoseTime = SearchAppointment.SecondDoseTime;
                 appointment.Place = SearchAppointment.Place;
+
                 lbl_showDate.Text = appointment.FirstDoseDate.ToString("yyyy/MM/dd hh:mm");
-               
                 lbl_showname.Text = citizen.CitizenName;
                 lbl_showPlace.Text = appointment.Place;
 
+                lbl_ShowSDDate.Text = appointment.SecondDoseTime?.ToString("yyyy/MM/dd hh:mm");
+                lbl_ShowSDname.Text = citizen.CitizenName;
+                lbl_ShowSDPlace.Text = appointment.Place;
             }
         }
 
@@ -681,14 +685,51 @@ namespace Finalproject
                 }
                 else
                 {
+
                     appointment.SecondDoseTime = SecondDose.AddDays(days).AddMinutes(minutes);
                     db.SaveChanges();
-                    MessageBox.Show("Segunda cita Guardada, el dia y hora "+ appointment.SecondDoseTime);
+
+                    Citizen Searchcitizen = db.Citizens.Find(txt_SDdui.Text);
+                    Appointment SearchAppointment = db.Appointments.FirstOrDefault(x => x.DuiCitizen == txt_SDdui.Text);
+
+                    //Mostrando los datos de la segunda cita con el DUI insertado
+                    Citizen citizen = new Citizen();
+                    Appointment appointment2 = new Appointment();
+
+                    citizen.CitizenName = Searchcitizen.CitizenName;
+                    appointment.SecondDoseTime = SearchAppointment.SecondDoseTime;
+                    appointment.Place = SearchAppointment.Place;
+
+                    string Totaldate = appointment.SecondDoseTime?.ToString("yyyy/MM/dd hh:mm");
+                    string date = Totaldate.Substring(0, 10);
+                    int Tdlength = Totaldate.Length;
+                    string hour = Totaldate.Substring((Tdlength - 6), 6);
+
+                    To_pdf(date,hour, appointment.Place);
                 }
 
             }
         }
 
-       
+        private void btn_ShowSDInfo_Click(object sender, EventArgs e)
+        {
+            //Genera el documento PDF sobre el ciudadano que esta consultando el "seguimiento de cita"
+            try
+            {
+                var pdif = txt_Dui.Text;
+
+                string Totaldate = lbl_ShowSDDate.Text;
+                string date = Totaldate.Substring(0, 10);
+                int Tdlength = Totaldate.Length;
+                string hour = Totaldate.Substring((Tdlength - 6), 6);
+
+                To_pdf(date, hour, lbl_ShowSDPlace.Text);
+            }
+            catch
+            {
+                MessageBox.Show("No puede imprimir si no hay datos", "ERROR",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
