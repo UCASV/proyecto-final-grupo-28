@@ -456,11 +456,13 @@ namespace Finalproject
                 Appointment appointment = new Appointment();
 
                 citizen.CitizenName = Searchcitizen.CitizenName;
+                
+                
                 appointment.FirstDoseDate = SearchAppointment.FirstDoseDate;
                 appointment.Place = SearchAppointment.Place;
-
-                lbl_showname.Text = citizen.CitizenName;
                 lbl_showDate.Text = appointment.FirstDoseDate.ToString("yyyy/MM/dd hh:mm");
+               
+                lbl_showname.Text = citizen.CitizenName;
                 lbl_showPlace.Text = appointment.Place;
 
             }
@@ -541,11 +543,11 @@ namespace Finalproject
             {
                 var pdif = txt_Dui.Text;
 
-                string Totaldate = lbl_showDate.Text;
+                string Totaldate = lbl_showDate.Text; 
                 string date = Totaldate.Substring(0, 10);
                 int Tdlength = Totaldate.Length;
                 string hour = Totaldate.Substring((Tdlength - 6), 6);
-
+                
                 To_pdf(date, hour, lbl_showPlace.Text);
             }
             catch
@@ -681,10 +683,12 @@ namespace Finalproject
                 {
                     appointment.SecondDoseTime = SecondDose.AddDays(days).AddMinutes(minutes);
                     db.SaveChanges();
-                    MessageBox.Show("Segunda cita Guardada");
+                    MessageBox.Show("Segunda cita Guardada, el dia y hora "+ appointment.SecondDoseTime);
                 }
 
             }
         }
+
+       
     }
 }

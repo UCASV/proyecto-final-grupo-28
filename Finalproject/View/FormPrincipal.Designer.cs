@@ -177,7 +177,7 @@ namespace Finalproject
             this.tabDateProcess.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tabDateProcess.Location = new System.Drawing.Point(4, 24);
             this.tabDateProcess.Name = "tabDateProcess";
-            this.tabDateProcess.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabDateProcess.Padding = new System.Windows.Forms.Padding(3);
             this.tabDateProcess.Size = new System.Drawing.Size(755, 498);
             this.tabDateProcess.TabIndex = 0;
             this.tabDateProcess.Text = "Proceso de cita";
@@ -252,7 +252,7 @@ namespace Finalproject
             this.tableLayoutPanel1.Controls.Add(this.txtDui, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblage, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblDui, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(47, 22);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 22);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
@@ -262,32 +262,32 @@ namespace Finalproject
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(168, 250);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(198, 250);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // txtEmail
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Location = new System.Drawing.Point(70, 214);
+            this.txtEmail.Location = new System.Drawing.Point(82, 214);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(95, 26);
+            this.txtEmail.Size = new System.Drawing.Size(113, 26);
             this.txtEmail.TabIndex = 11;
             // 
             // txtPhone
             // 
             this.txtPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPhone.Location = new System.Drawing.Point(70, 171);
+            this.txtPhone.Location = new System.Drawing.Point(82, 171);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(95, 26);
+            this.txtPhone.Size = new System.Drawing.Size(113, 26);
             this.txtPhone.TabIndex = 10;
             // 
             // lblEmail
             // 
             this.lblEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(3, 205);
+            this.lblEmail.Location = new System.Drawing.Point(3, 208);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(61, 45);
+            this.lblEmail.Size = new System.Drawing.Size(73, 38);
             this.lblEmail.TabIndex = 5;
             this.lblEmail.Text = "Email (opcional)";
             // 
@@ -295,9 +295,9 @@ namespace Finalproject
             // 
             this.lblPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(3, 165);
+            this.lblPhone.Location = new System.Drawing.Point(3, 175);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(61, 38);
+            this.lblPhone.Size = new System.Drawing.Size(73, 19);
             this.lblPhone.TabIndex = 4;
             this.lblPhone.Text = "Teléfono:";
             // 
@@ -305,9 +305,9 @@ namespace Finalproject
             // 
             this.lblname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblname.AutoSize = true;
-            this.lblname.Location = new System.Drawing.Point(3, 83);
+            this.lblname.Location = new System.Drawing.Point(3, 93);
             this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(61, 38);
+            this.lblname.Size = new System.Drawing.Size(73, 19);
             this.lblname.TabIndex = 2;
             this.lblname.Text = "Nombre:";
             // 
@@ -315,42 +315,42 @@ namespace Finalproject
             // 
             this.lblAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(3, 124);
+            this.lblAddress.Location = new System.Drawing.Point(3, 134);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(61, 38);
+            this.lblAddress.Size = new System.Drawing.Size(73, 19);
             this.lblAddress.TabIndex = 3;
             this.lblAddress.Text = "Dirección:";
             // 
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(70, 89);
+            this.txtName.Location = new System.Drawing.Point(82, 89);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(95, 26);
+            this.txtName.Size = new System.Drawing.Size(113, 26);
             this.txtName.TabIndex = 8;
             // 
             // txtAddress
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddress.Location = new System.Drawing.Point(70, 130);
+            this.txtAddress.Location = new System.Drawing.Point(82, 130);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(95, 26);
+            this.txtAddress.Size = new System.Drawing.Size(113, 26);
             this.txtAddress.TabIndex = 9;
             // 
             // txtAge
             // 
             this.txtAge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAge.Location = new System.Drawing.Point(70, 48);
+            this.txtAge.Location = new System.Drawing.Point(82, 48);
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(95, 26);
+            this.txtAge.Size = new System.Drawing.Size(113, 26);
             this.txtAge.TabIndex = 6;
             // 
             // txtDui
             // 
             this.txtDui.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDui.Location = new System.Drawing.Point(70, 7);
+            this.txtDui.Location = new System.Drawing.Point(82, 7);
             this.txtDui.Name = "txtDui";
-            this.txtDui.Size = new System.Drawing.Size(95, 26);
+            this.txtDui.Size = new System.Drawing.Size(113, 26);
             this.txtDui.TabIndex = 7;
             // 
             // lblage
@@ -360,7 +360,7 @@ namespace Finalproject
             this.lblage.ForeColor = System.Drawing.Color.Black;
             this.lblage.Location = new System.Drawing.Point(3, 52);
             this.lblage.Name = "lblage";
-            this.lblage.Size = new System.Drawing.Size(61, 19);
+            this.lblage.Size = new System.Drawing.Size(73, 19);
             this.lblage.TabIndex = 0;
             this.lblage.Text = "Edad:";
             // 
@@ -371,7 +371,7 @@ namespace Finalproject
             this.lblDui.ForeColor = System.Drawing.Color.Black;
             this.lblDui.Location = new System.Drawing.Point(3, 11);
             this.lblDui.Name = "lblDui";
-            this.lblDui.Size = new System.Drawing.Size(61, 19);
+            this.lblDui.Size = new System.Drawing.Size(73, 19);
             this.lblDui.TabIndex = 1;
             this.lblDui.Text = "DUI:";
             this.lblDui.Click += new System.EventHandler(this.lblDui_Click);
@@ -397,9 +397,9 @@ namespace Finalproject
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button1.FlatAppearance.BorderSize = 3;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(223, 161);
+            this.button1.Location = new System.Drawing.Point(223, 154);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 28);
+            this.button1.Size = new System.Drawing.Size(126, 35);
             this.button1.TabIndex = 18;
             this.button1.Text = "Agregar enfermedad";
             this.button1.UseVisualStyleBackColor = false;
@@ -474,9 +474,9 @@ namespace Finalproject
             this.btnAddNewInst.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnAddNewInst.FlatAppearance.BorderSize = 3;
             this.btnAddNewInst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNewInst.Location = new System.Drawing.Point(281, 121);
+            this.btnAddNewInst.Location = new System.Drawing.Point(281, 108);
             this.btnAddNewInst.Name = "btnAddNewInst";
-            this.btnAddNewInst.Size = new System.Drawing.Size(96, 29);
+            this.btnAddNewInst.Size = new System.Drawing.Size(101, 44);
             this.btnAddNewInst.TabIndex = 19;
             this.btnAddNewInst.Text = "Agregar";
             this.btnAddNewInst.UseVisualStyleBackColor = false;
@@ -566,7 +566,7 @@ namespace Finalproject
             this.tabVaccination.Controls.Add(this.tableLayoutPanel2);
             this.tabVaccination.Location = new System.Drawing.Point(4, 24);
             this.tabVaccination.Name = "tabVaccination";
-            this.tabVaccination.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabVaccination.Padding = new System.Windows.Forms.Padding(3);
             this.tabVaccination.Size = new System.Drawing.Size(755, 498);
             this.tabVaccination.TabIndex = 1;
             this.tabVaccination.Text = "Vacunacion";
@@ -994,9 +994,9 @@ namespace Finalproject
             this.btn_SDregister.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btn_SDregister.FlatAppearance.BorderSize = 3;
             this.btn_SDregister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_SDregister.Location = new System.Drawing.Point(157, 112);
+            this.btn_SDregister.Location = new System.Drawing.Point(231, 32);
             this.btn_SDregister.Name = "btn_SDregister";
-            this.btn_SDregister.Size = new System.Drawing.Size(84, 28);
+            this.btn_SDregister.Size = new System.Drawing.Size(84, 32);
             this.btn_SDregister.TabIndex = 13;
             this.btn_SDregister.Text = "Registrar";
             this.btn_SDregister.UseVisualStyleBackColor = false;
@@ -1004,7 +1004,7 @@ namespace Finalproject
             // 
             // txt_SDdui
             // 
-            this.txt_SDdui.Location = new System.Drawing.Point(141, 36);
+            this.txt_SDdui.Location = new System.Drawing.Point(125, 36);
             this.txt_SDdui.Name = "txt_SDdui";
             this.txt_SDdui.Size = new System.Drawing.Size(100, 26);
             this.txt_SDdui.TabIndex = 13;
@@ -1012,7 +1012,7 @@ namespace Finalproject
             // lbl_SDdui
             // 
             this.lbl_SDdui.AutoSize = true;
-            this.lbl_SDdui.Location = new System.Drawing.Point(109, 39);
+            this.lbl_SDdui.Location = new System.Drawing.Point(95, 39);
             this.lbl_SDdui.Name = "lbl_SDdui";
             this.lbl_SDdui.Size = new System.Drawing.Size(33, 19);
             this.lbl_SDdui.TabIndex = 13;
@@ -1112,7 +1112,7 @@ namespace Finalproject
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox5.Location = new System.Drawing.Point(16, 300);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(298, 147);
+            this.groupBox5.Size = new System.Drawing.Size(306, 147);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Recibio la vacuna";
@@ -1123,9 +1123,9 @@ namespace Finalproject
             this.btn_VaccineRegister.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btn_VaccineRegister.FlatAppearance.BorderSize = 3;
             this.btn_VaccineRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_VaccineRegister.Location = new System.Drawing.Point(167, 118);
+            this.btn_VaccineRegister.Location = new System.Drawing.Point(179, 99);
             this.btn_VaccineRegister.Name = "btn_VaccineRegister";
-            this.btn_VaccineRegister.Size = new System.Drawing.Size(84, 29);
+            this.btn_VaccineRegister.Size = new System.Drawing.Size(84, 33);
             this.btn_VaccineRegister.TabIndex = 12;
             this.btn_VaccineRegister.Text = "Registrar";
             this.btn_VaccineRegister.UseVisualStyleBackColor = false;
@@ -1144,7 +1144,7 @@ namespace Finalproject
             // dtp_Vdate
             // 
             this.dtp_Vdate.CustomFormat = "yyyy/MM/dd ";
-            this.dtp_Vdate.Location = new System.Drawing.Point(43, 61);
+            this.dtp_Vdate.Location = new System.Drawing.Point(54, 60);
             this.dtp_Vdate.Name = "dtp_Vdate";
             this.dtp_Vdate.Size = new System.Drawing.Size(246, 26);
             this.dtp_Vdate.TabIndex = 11;
@@ -1195,7 +1195,7 @@ namespace Finalproject
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox4.Location = new System.Drawing.Point(16, 85);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(293, 182);
+            this.groupBox4.Size = new System.Drawing.Size(306, 182);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Fila de espera";
@@ -1211,7 +1211,7 @@ namespace Finalproject
             // 
             // txt_Qdui
             // 
-            this.txt_Qdui.Location = new System.Drawing.Point(43, 32);
+            this.txt_Qdui.Location = new System.Drawing.Point(54, 28);
             this.txt_Qdui.Name = "txt_Qdui";
             this.txt_Qdui.Size = new System.Drawing.Size(100, 26);
             this.txt_Qdui.TabIndex = 6;
@@ -1222,7 +1222,7 @@ namespace Finalproject
             this.btn_Qregister.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btn_Qregister.FlatAppearance.BorderSize = 3;
             this.btn_Qregister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Qregister.Location = new System.Drawing.Point(167, 143);
+            this.btn_Qregister.Location = new System.Drawing.Point(179, 102);
             this.btn_Qregister.Name = "btn_Qregister";
             this.btn_Qregister.Size = new System.Drawing.Size(84, 33);
             this.btn_Qregister.TabIndex = 5;
@@ -1243,7 +1243,7 @@ namespace Finalproject
             // dtp_date
             // 
             this.dtp_date.CustomFormat = "yyyy/MM/dd ";
-            this.dtp_date.Location = new System.Drawing.Point(43, 63);
+            this.dtp_date.Location = new System.Drawing.Point(54, 63);
             this.dtp_date.Name = "dtp_date";
             this.dtp_date.Size = new System.Drawing.Size(246, 26);
             this.dtp_date.TabIndex = 3;

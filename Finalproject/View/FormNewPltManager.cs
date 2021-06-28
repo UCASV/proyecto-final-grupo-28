@@ -65,13 +65,13 @@ namespace Finalproject
                 NewStaff.IdType = type;
                 NewStasff.create(NewStaff);
 
-                MessageBox.Show("Registered successfully", "Staff",
+                MessageBox.Show("Registrado correctamente", "Empleado",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else
             {
-                MessageBox.Show("The user already exists", "ERROR",
+                MessageBox.Show("El usuario ya existe", "ERROR",
                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
@@ -88,5 +88,7 @@ namespace Finalproject
                 txt_password.UseSystemPasswordChar = true;
             }
         }
+
+       
     }
 }
