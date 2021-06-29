@@ -87,6 +87,8 @@ namespace Finalproject
             this.lblimpdui = new System.Windows.Forms.Label();
             this.lblimpname = new System.Windows.Forms.Label();
             this.tabDateFollowUp = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.btn_ShowSDInfo = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_ShowSDPlace = new System.Windows.Forms.Label();
@@ -141,8 +143,6 @@ namespace Finalproject
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabDateProcess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisease)).BeginInit();
@@ -678,9 +678,9 @@ namespace Finalproject
             this.lbltxt6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbltxt6.Location = new System.Drawing.Point(53, 199);
             this.lbltxt6.Name = "lbltxt6";
-            this.lbltxt6.Size = new System.Drawing.Size(108, 25);
+            this.lbltxt6.Size = new System.Drawing.Size(113, 25);
             this.lbltxt6.TabIndex = 9;
-            this.lbltxt6.Text = "vacunacion";
+            this.lbltxt6.Text = "vacunacion ";
             // 
             // lbltxt5
             // 
@@ -698,9 +698,9 @@ namespace Finalproject
             this.lbltxt4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbltxt4.Location = new System.Drawing.Point(346, 176);
             this.lbltxt4.Name = "lbltxt4";
-            this.lbltxt4.Size = new System.Drawing.Size(59, 25);
+            this.lbltxt4.Size = new System.Drawing.Size(64, 25);
             this.lbltxt4.TabIndex = 7;
-            this.lbltxt4.Text = ", a las";
+            this.lbltxt4.Text = ", a las ";
             // 
             // btnimprimir
             // 
@@ -783,23 +783,24 @@ namespace Finalproject
             // 
             this.lblimpdui.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblimpdui.AutoSize = true;
-            this.lblimpdui.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblimpdui.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblimpdui.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblimpdui.Location = new System.Drawing.Point(350, 2);
+            this.lblimpdui.Location = new System.Drawing.Point(350, 0);
             this.lblimpdui.Name = "lblimpdui";
-            this.lblimpdui.Size = new System.Drawing.Size(341, 25);
+            this.lblimpdui.Size = new System.Drawing.Size(341, 30);
             this.lblimpdui.TabIndex = 1;
             // 
             // lblimpname
             // 
             this.lblimpname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblimpname.AutoSize = true;
-            this.lblimpname.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblimpname.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblimpname.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblimpname.Location = new System.Drawing.Point(3, 2);
+            this.lblimpname.Location = new System.Drawing.Point(3, 0);
             this.lblimpname.Name = "lblimpname";
-            this.lblimpname.Size = new System.Drawing.Size(341, 25);
+            this.lblimpname.Size = new System.Drawing.Size(341, 30);
             this.lblimpname.TabIndex = 0;
+            this.lblimpname.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tabDateFollowUp
             // 
@@ -819,6 +820,26 @@ namespace Finalproject
             this.tabDateFollowUp.TabIndex = 2;
             this.tabDateFollowUp.Text = "Seguimiento de cita";
             this.tabDateFollowUp.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(397, 98);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(257, 21);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Información de la segunda dosis";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(49, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(252, 21);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Información de la primera dosis";
             // 
             // btn_ShowSDInfo
             // 
@@ -1076,6 +1097,7 @@ namespace Finalproject
             // tabVaccinationProcess
             // 
             this.tabVaccinationProcess.BackgroundImage = global::Finalproject.Properties.Resources.images1;
+            this.tabVaccinationProcess.Controls.Add(this.btn_VaccineRegister);
             this.tabVaccinationProcess.Controls.Add(this.pictureBox3);
             this.tabVaccinationProcess.Controls.Add(this.groupBox7);
             this.tabVaccinationProcess.Controls.Add(this.groupBox6);
@@ -1227,7 +1249,6 @@ namespace Finalproject
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.btn_VaccineRegister);
             this.groupBox5.Controls.Add(this.dtp_Vhour);
             this.groupBox5.Controls.Add(this.dtp_Vdate);
             this.groupBox5.Controls.Add(this.txt_Vdui);
@@ -1248,7 +1269,7 @@ namespace Finalproject
             this.btn_VaccineRegister.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btn_VaccineRegister.FlatAppearance.BorderSize = 3;
             this.btn_VaccineRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_VaccineRegister.Location = new System.Drawing.Point(179, 99);
+            this.btn_VaccineRegister.Location = new System.Drawing.Point(195, 433);
             this.btn_VaccineRegister.Name = "btn_VaccineRegister";
             this.btn_VaccineRegister.Size = new System.Drawing.Size(84, 33);
             this.btn_VaccineRegister.TabIndex = 12;
@@ -1264,7 +1285,7 @@ namespace Finalproject
             this.dtp_Vhour.ShowUpDown = true;
             this.dtp_Vhour.Size = new System.Drawing.Size(106, 26);
             this.dtp_Vhour.TabIndex = 8;
-            this.dtp_Vhour.Value = new System.DateTime(2021, 6, 25, 18, 34, 57, 0);
+            this.dtp_Vhour.Value = new System.DateTime(2021, 6, 25, 7, 0, 0, 0);
             // 
             // dtp_Vdate
             // 
@@ -1347,7 +1368,7 @@ namespace Finalproject
             this.btn_Qregister.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btn_Qregister.FlatAppearance.BorderSize = 3;
             this.btn_Qregister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Qregister.Location = new System.Drawing.Point(179, 102);
+            this.btn_Qregister.Location = new System.Drawing.Point(179, 134);
             this.btn_Qregister.Name = "btn_Qregister";
             this.btn_Qregister.Size = new System.Drawing.Size(84, 33);
             this.btn_Qregister.TabIndex = 5;
@@ -1363,7 +1384,7 @@ namespace Finalproject
             this.dtp_hour.ShowUpDown = true;
             this.dtp_hour.Size = new System.Drawing.Size(106, 26);
             this.dtp_hour.TabIndex = 4;
-            this.dtp_hour.Value = new System.DateTime(2021, 6, 25, 18, 34, 57, 0);
+            this.dtp_hour.Value = new System.DateTime(2021, 6, 25, 7, 0, 0, 0);
             // 
             // dtp_date
             // 
@@ -1442,26 +1463,6 @@ namespace Finalproject
             this.label5.Size = new System.Drawing.Size(134, 21);
             this.label5.TabIndex = 4;
             this.label5.Text = " ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(49, 98);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(252, 21);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Información de la primera dosis";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(397, 98);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(257, 21);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Información de la segunda dosis";
             // 
             // FrmPrincipal
             // 

@@ -112,7 +112,10 @@ namespace Finalproject
 
             this.Activated += (s, evt) => { UpdateCMB(); };
 
-
+            dtp_date.Value = DateTime.Now;
+            dtp_Vdate.Value = DateTime.Now;
+            dtp_hour.Value = DateTime.Now;
+            dtp_Vhour.Value = DateTime.Now;
         }
 
         private void chkDiseaseAsk_CheckedChanged(object sender, EventArgs e)
@@ -368,7 +371,15 @@ namespace Finalproject
 
         private void btnimprimir_Click(object sender, EventArgs e)
         {
-            To_pdf(lblfeha1.Text, lblhora2.Text, lblplacevacun.Text);
+            if(lblimpname.Text == string.Empty)
+            {
+                MessageBox.Show("No se puede imprimir si no hay datos", "Imprimir Informacion", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+            else
+            {
+                To_pdf(lblfeha1.Text, lblhora2.Text, lblplacevacun.Text);
+            }
         }
 
         private void To_pdf(string date, string hour, string place)
@@ -428,47 +439,66 @@ namespace Finalproject
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            //se valida si el ciudadano existe ya se encuentra en la base de datos
-            var db = new VaccinationDBContext();
-            var CitizenList = db.Citizens
-                .OrderBy(u => u.Dui)
-                .ToList();
+            lbl_ShowSDDate.Text = "";
+            lbl_ShowSDname.Text = "";
+            lbl_ShowSDPlace.Text = "";
+            lbl_showDate.Text = "";
+            lbl_showname.Text = "";
+            lbl_showPlace.Text = "";
 
-            var result = CitizenList.Where(
-                u => u.Dui.Equals(txt_Dui.Text)
-                ).ToList();
-
-            //si el contador da 0 significa que el ciudadano no se encuentra en la base de datos
-            if (result.Count == 0)
+            if(txt_Dui.Text == string.Empty)
             {
-                MessageBox.Show("El ciudadano no ha realizado ninguna cita", "ERROR",
-                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Inserte el Dui", "ERROR",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Citizen Searchcitizen = db.Citizens.Find(txt_Dui.Text);
+                //se valida si el ciudadano existe ya se encuentra en la base de datos
+                var db = new VaccinationDBContext();
+                var CitizenList = db.Citizens
+                    .OrderBy(u => u.Dui)
+                    .ToList();
+
+                var result = CitizenList.Where(
+                    u => u.Dui.Equals(txt_Dui.Text)
+                    ).ToList();
+
+                //si el contador da 0 significa que el ciudadano no se encuentra en la base de datos
+                if (result.Count == 0)
+                {
+                    MessageBox.Show("El ciudadano no ha realizado ninguna cita", "ERROR",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Citizen Searchcitizen = db.Citizens.Find(txt_Dui.Text);
 
 
-                Appointment SearchAppointment = db.Appointments.FirstOrDefault(x => x.DuiCitizen == txt_Dui.Text);
+                    Appointment SearchAppointment = db.Appointments.FirstOrDefault(x => x.DuiCitizen == txt_Dui.Text);
 
-                //Mostrando los datos de la cita con el DUI insertado
-                Citizen citizen = new Citizen();
-                Appointment appointment = new Appointment();
+                    //Mostrando los datos de la cita con el DUI insertado
+                    Citizen citizen = new Citizen();
+                    Appointment appointment = new Appointment();
 
-                citizen.CitizenName = Searchcitizen.CitizenName;
-                
-                
-                appointment.FirstDoseDate = SearchAppointment.FirstDoseDate;
-                appointment.SecondDoseTime = SearchAppointment.SecondDoseTime;
-                appointment.Place = SearchAppointment.Place;
+                    citizen.CitizenName = Searchcitizen.CitizenName;
 
-                lbl_showDate.Text = appointment.FirstDoseDate.ToString("yyyy/MM/dd hh:mm");
-                lbl_showname.Text = citizen.CitizenName;
-                lbl_showPlace.Text = appointment.Place;
 
-                lbl_ShowSDDate.Text = appointment.SecondDoseTime?.ToString("yyyy/MM/dd hh:mm");
-                lbl_ShowSDname.Text = citizen.CitizenName;
-                lbl_ShowSDPlace.Text = appointment.Place;
+                    appointment.FirstDoseDate = SearchAppointment.FirstDoseDate;
+                    appointment.SecondDoseTime = SearchAppointment.SecondDoseTime;
+                    appointment.Place = SearchAppointment.Place;
+
+                    lbl_showDate.Text = appointment.FirstDoseDate.ToString("yyyy/MM/dd hh:mm");
+                    lbl_showname.Text = citizen.CitizenName;
+                    lbl_showPlace.Text = appointment.Place;
+
+                    string SecondDoseDate = appointment.SecondDoseTime?.ToString("yyyy/MM/dd hh:mm");
+                    if (SecondDoseDate != null)
+                    {
+                        lbl_ShowSDDate.Text = SecondDoseDate;
+                        lbl_ShowSDname.Text = citizen.CitizenName;
+                        lbl_ShowSDPlace.Text = appointment.Place;
+                    }
+                }
             }
         }
 
@@ -561,6 +591,22 @@ namespace Finalproject
             }
         }
 
+        //Funcion que verificara si el dui introducido se encuentra registrado con anterioridad
+        private int CheckDui(string dui)
+        {
+            var db = new VaccinationDBContext();
+
+            var StaffList = db.Citizens
+                           .OrderBy(u => u.Dui)
+                           .ToList();
+
+            var result = StaffList.Where(
+                u => u.Dui.Equals(dui)
+                ).ToList();
+
+            return result.Count;
+        }
+
         private void btn_Qregister_Click(object sender, EventArgs e)
         {
             if (txt_Qdui.Text == string.Empty)
@@ -570,27 +616,52 @@ namespace Finalproject
             }
             else
             {
-                //Registrara a la fecha y hora en que se encuentra en la fila
-                var db = new VaccinationDBContext();
+                int count = CheckDui(txt_Qdui.Text);
+                //si el count da igual a 0 significa que el dui esta malo
+                if(count == 0)
+                {
+                    MessageBox.Show("Dui Erroneo", "ERROR",
+                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //Registrara a la fecha y hora en que se encuentra en la fila
+                    var db = new VaccinationDBContext();
 
-                DateTime myDate = dtp_date.Value.Date + dtp_hour.Value.TimeOfDay;
+                    DateTime TotalDate = dtp_date.Value.Date + dtp_hour.Value.TimeOfDay;
+                    DateTime myDate = dtp_date.Value.Date;
 
-                VacQueue queue = new VacQueue();
+                    VacQueue queue = new VacQueue();
 
-                queue.VacQueue1 = myDate;
-                db.Add(queue);
-                db.SaveChanges();
+                    var appointment = db.Appointments.Where(x => x.DuiCitizen == txt_Qdui.Text).SingleOrDefault();
+                    int result = DateTime.Compare(myDate, appointment.FirstDoseDate.Date);
 
-                int Queueid = queue.Id;
+                    if(result < 0)
+                    {
+                        MessageBox.Show("La cita es el " + appointment.FirstDoseDate);
+                    }
+                    else if(result == 0)
+                    {
+                        queue.VacQueue1 = TotalDate;
+                        db.Add(queue);
+                        db.SaveChanges();
 
-                var citizen = db.Citizens.FirstOrDefault(x => x.Dui == txt_Qdui.Text);
-                citizen.IdQueue = Queueid;
-                db.SaveChanges();
+                        int Queueid = queue.Id;
 
-                MessageBox.Show("Registrado correctamente", "Fila",
-                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        var citizen = db.Citizens.FirstOrDefault(x => x.Dui == txt_Qdui.Text);
+                        citizen.IdQueue = Queueid;
+                        db.SaveChanges();
+
+                        MessageBox.Show("Registrado correctamente", "Fila",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("La cita fue " + appointment.FirstDoseDate);
+                    }
+                }
             }
-
+            txt_Qdui.Clear();
         }
 
         private void btn_VaccineRegister_Click(object sender, EventArgs e)
@@ -602,24 +673,49 @@ namespace Finalproject
             }
             else
             {
-                //Registrara la fecha y hora en que recibio la vacuna
-                var db = new VaccinationDBContext();
+                int count = CheckDui(txt_Vdui.Text);
+                //si el count da igual a 0 significa que el dui esta malo
+                if (count == 0)
+                {
+                    MessageBox.Show("Dui Erroneo", "ERROR",
+                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //Registrara la fecha y hora en que recibio la vacuna
+                    var db = new VaccinationDBContext();
 
-                DateTime myDate = dtp_Vdate.Value.Date + dtp_Vhour.Value.TimeOfDay;
+                    DateTime TotalDate = dtp_Vdate.Value.Date + dtp_Vhour.Value.TimeOfDay;
+                    DateTime myDate = dtp_Vdate.Value.Date;
 
-                Vaccination vaccine = new Vaccination();
+                    Vaccination vaccine = new Vaccination();
 
-                vaccine.VaccinationDate = myDate;
-                db.Add(vaccine);
-                db.SaveChanges();
+                    var appointment = db.Appointments.Where(x => x.DuiCitizen == txt_Vdui.Text).SingleOrDefault();
+                    int result = DateTime.Compare(myDate, appointment.FirstDoseDate.Date);
 
-                int VaccineId = vaccine.Id;
-                var citizen = db.Citizens.FirstOrDefault(x => x.Dui == txt_Vdui.Text);
-                citizen.IdVaccination = VaccineId;
-                db.SaveChanges();
+                    if (result < 0)
+                    {
+                        MessageBox.Show("La cita es el " + appointment.FirstDoseDate);
+                    }
+                    else if (result == 0)
+                    {
+                        vaccine.VaccinationDate = TotalDate;
+                        db.Add(vaccine);
+                        db.SaveChanges();
 
-                MessageBox.Show("Registrado correctamente", "Vacuna",
-                               MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        int VaccineId = vaccine.Id;
+                        var citizen = db.Citizens.FirstOrDefault(x => x.Dui == txt_Vdui.Text);
+                        citizen.IdVaccination = VaccineId;
+                        db.SaveChanges();
+
+                        MessageBox.Show("Registrado correctamente", "Vacuna",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("La cita fue " + appointment.FirstDoseDate);
+                    }
+                }
             }
         }
 
@@ -632,6 +728,8 @@ namespace Finalproject
             }
             else
             {
+
+
                 //Registrara los efectos secundarios que el ciudadano presento al ponerse la vacuna
                 string DUI = txt_ESdui.Text;
                 var db = new VaccinationDBContext();
