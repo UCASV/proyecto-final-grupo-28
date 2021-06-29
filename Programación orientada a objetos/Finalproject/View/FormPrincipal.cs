@@ -728,30 +728,35 @@ namespace Finalproject
             }
             else
             {
+                try
+                {
+                    //Registrara los efectos secundarios que el ciudadano presento al ponerse la vacuna
+                    string DUI = txt_ESdui.Text;
+                    var db = new VaccinationDBContext();
 
+                    SideEffect effect = new SideEffect();
+                    effect.Effect = txt_ESeffect.Text;
+                    effect.SeTime = Int32.Parse(txt_EStime.Text);
+                    db.Add(effect);
+                    db.SaveChanges();
 
-                //Registrara los efectos secundarios que el ciudadano presento al ponerse la vacuna
-                string DUI = txt_ESdui.Text;
-                var db = new VaccinationDBContext();
+                    int SideEffectID = effect.Id;
 
-                SideEffect effect = new SideEffect();
-                effect.Effect = txt_ESeffect.Text;
-                effect.SeTime = Int32.Parse(txt_EStime.Text);
-                db.Add(effect);
-                db.SaveChanges();
+                    CitizenxsideEffect CitizenEffects = new CitizenxsideEffect();
+                    CitizenEffects.DuiCitizen = DUI;
+                    CitizenEffects.IdSideEffect = SideEffectID;
+                    db.Add(CitizenEffects);
+                    db.SaveChanges();
 
-                int SideEffectID = effect.Id;
-
-                CitizenxsideEffect CitizenEffects = new CitizenxsideEffect();
-                CitizenEffects.DuiCitizen = DUI;
-                CitizenEffects.IdSideEffect = SideEffectID;
-                db.Add(CitizenEffects);
-                db.SaveChanges();
-
-                txt_ESeffect.Clear();
-                txt_EStime.Clear();
-                MessageBox.Show("Efectos secundario registrado", "Vacuna",
-                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txt_ESeffect.Clear();
+                    txt_EStime.Clear();
+                    MessageBox.Show("Efectos secundario registrado", "Vacuna",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Datos erroneos","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
             }
         }
 
