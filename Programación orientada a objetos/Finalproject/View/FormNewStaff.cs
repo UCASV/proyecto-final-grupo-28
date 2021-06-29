@@ -9,15 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Finalproject.SqlServerContext;
 using System.Text.RegularExpressions;
+using Finalproject.Services;
 
 namespace Finalproject
 {
     public partial class frm_NewStaff : Form
     {
-
+        private newStaff staffservices;
         public frm_NewStaff()
         {
             InitializeComponent();
+            staffservices = new newStaff();
         }
 
         private void btn_CreateStaff_Click(object sender, EventArgs e)
@@ -76,12 +78,19 @@ namespace Finalproject
                             NewStaff.Email = email;
                             NewStaff.AddressStaff = address;
                             NewStaff.IdType = type + 1;
-                            db.Add(NewStaff);
-                            db.SaveChanges();
+                            try
+                            {
+                                staffservices.create(NewStaff);
 
-                            MessageBox.Show("Registrado correctamente", "REGISTRO",
+                                MessageBox.Show("Registrado correctamente", "REGISTRO",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                                this.Close();
+                            }
+                            catch
+                            {
+                                MessageBox.Show("El usuario ya existe", "ERROR",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         //Si da diferente de 0 significa que el gestor ya se encuentra en la base de datos
                         else
