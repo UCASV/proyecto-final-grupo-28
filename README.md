@@ -24,9 +24,13 @@ adentro de la carpeta debug se encuentra "setup"
 --Posteriormente se instalara y se generara un acceso directo en el escritorio o donde se selecciono guardar la appication 
 
 --Version del Framework : 5.0.7
+
 --Es requisito tener una base de datos existente "creada anteriormente"
+
 --Gestor de BDD :  SQL Server 2019
+
 --Manual de Usuario--
+
 
 Vacunación de El Salvador es un software desarrollado para mejorar la eficacia del proceso de vacunación en la República de El Salvador, con el propósito de agendar citas y darles seguimientos mediante algunos requerimientos necesarios del paciente, cuyo acceso estará limitado a los empleados con el rango de Gestores que podrán registrar empleados, agendar citas y darle seguimiento a estas mismas mediante el software.
 
