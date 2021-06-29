@@ -764,49 +764,59 @@ namespace Finalproject
             }
             else
             {
-                //El sistema le dara la fecha para la segunda dosis
-                var db = new VaccinationDBContext();
-                string dui = txt_SDdui.Text;
-
-                Random random = new Random();
-                int days = random.Next(42, 56);
-                int minutes = random.Next(20, 60);
-
-                var appointment = db.Appointments.Where(x => x.DuiCitizen == dui).SingleOrDefault();
-
-                DateTime SecondDose = appointment.FirstDoseDate;
-
-                if (appointment == null)
+                int count = CheckDui(txt_SDdui.Text);
+                //si el count da igual a 0 significa que el dui esta malo
+                if (count == 0)
                 {
-                    MessageBox.Show("El Dui insertado no existe", "ERROR",
+                    MessageBox.Show("Dui Erroneo", "ERROR",
                           MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
+                    //El sistema le dara la fecha para la segunda dosis
+                    var db = new VaccinationDBContext();
+                    string dui = txt_SDdui.Text;
 
-                    appointment.SecondDoseTime = SecondDose.AddDays(days).AddMinutes(minutes);
-                    db.SaveChanges();
+                    Random random = new Random();
+                    int days = random.Next(42, 56);
+                    int minutes = random.Next(20, 60);
 
-                    Citizen Searchcitizen = db.Citizens.Find(txt_SDdui.Text);
-                    Appointment SearchAppointment = db.Appointments.FirstOrDefault(x => x.DuiCitizen == txt_SDdui.Text);
+                    var appointment = db.Appointments.Where(x => x.DuiCitizen == dui).SingleOrDefault();
 
-                    //Mostrando los datos de la segunda cita con el DUI insertado
-                    Citizen citizen = new Citizen();
-                    Appointment appointment2 = new Appointment();
+                    DateTime SecondDose = appointment.FirstDoseDate;
 
-                    citizen.CitizenName = Searchcitizen.CitizenName;
-                    appointment.SecondDoseTime = SearchAppointment.SecondDoseTime;
-                    appointment.Place = SearchAppointment.Place;
+                    if (appointment == null)
+                    {
+                        MessageBox.Show("El Dui insertado no existe", "ERROR",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
 
-                    string Totaldate = appointment.SecondDoseTime?.ToString("yyyy/MM/dd hh:mm");
-                    string date = Totaldate.Substring(0, 10);
-                    int Tdlength = Totaldate.Length;
-                    string hour = Totaldate.Substring((Tdlength - 6), 6);
+                        appointment.SecondDoseTime = SecondDose.AddDays(days).AddMinutes(minutes);
+                        db.SaveChanges();
 
-                    To_pdf(date,hour, appointment.Place);
+                        Citizen Searchcitizen = db.Citizens.Find(txt_SDdui.Text);
+                        Appointment SearchAppointment = db.Appointments.FirstOrDefault(x => x.DuiCitizen == txt_SDdui.Text);
+
+                        //Mostrando los datos de la segunda cita con el DUI insertado
+                        Citizen citizen = new Citizen();
+                        Appointment appointment2 = new Appointment();
+
+                        citizen.CitizenName = Searchcitizen.CitizenName;
+                        appointment.SecondDoseTime = SearchAppointment.SecondDoseTime;
+                        appointment.Place = SearchAppointment.Place;
+
+                        string Totaldate = appointment.SecondDoseTime?.ToString("yyyy/MM/dd hh:mm");
+                        string date = Totaldate.Substring(0, 10);
+                        int Tdlength = Totaldate.Length;
+                        string hour = Totaldate.Substring((Tdlength - 6), 6);
+
+                        To_pdf(date, hour, appointment.Place);
+                    }
                 }
-
             }
+            txt_SDdui.Clear();
         }
 
         private void btn_ShowSDInfo_Click(object sender, EventArgs e)
