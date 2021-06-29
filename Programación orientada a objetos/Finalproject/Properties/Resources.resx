@@ -124,6 +124,9 @@
   <data name="descarga1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descarga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="4f60305f48b01e05db6b53083abf71dd3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4f60305f48b01e05db6b53083abf71dd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="descarga" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descarga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,8 +148,8 @@
   <data name="1900851" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1900851.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="4f60305f48b01e05db6b53083abf71dd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4f60305f48b01e05db6b53083abf71dd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="2109c-print-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2109c-print-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fae710d168c10d9b8cf28c86150f5d88--pastel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fae710d168c10d9b8cf28c86150f5d88--pastel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,13 +199,13 @@
   <data name="pngtree-pastel-big-red-solid-color-background-image_396555 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-pastel-big-red-solid-color-background-image_396555 (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="2109c-print-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2109c-print-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="4f60305f48b01e05db6b53083abf71dd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4f60305f48b01e05db6b53083abf71dd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="4f60305f48b01e05db6b53083abf71dd2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4f60305f48b01e05db6b53083abf71dd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="4f60305f48b01e05db6b53083abf71dd3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4f60305f48b01e05db6b53083abf71dd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fae710d168c10d9b8cf28c86150f5d88--pastel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fae710d168c10d9b8cf28c86150f5d88--pastel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

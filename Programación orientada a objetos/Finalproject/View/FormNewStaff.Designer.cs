@@ -103,7 +103,7 @@ namespace Finalproject
             this.tableLayoutPanel2.Controls.Add(this.lbl_Staff_type, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.cmb_StaffType, 1, 4);
             this.tableLayoutPanel2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tableLayoutPanel2.ForeColor = System.Drawing.Color.White;
+            this.tableLayoutPanel2.ForeColor = System.Drawing.Color.Black;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(37, 93);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -263,7 +263,7 @@ namespace Finalproject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Finalproject.Properties.Resources._0kTnyvL;
+            this.BackgroundImage = global::Finalproject.Properties.Resources.fae710d168c10d9b8cf28c86150f5d88__pastel1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(383, 469);
             this.Controls.Add(this.pictureBox1);
